@@ -1,0 +1,13 @@
+{
+  "name": "ipl-ticket-booking",
+  "private": true,
+  "scripts": {
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.2"
+  }
+}
