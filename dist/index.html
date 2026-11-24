@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071226">
+  <meta name="description" content="Explore IPL teams, sample matchups and a demo ticket-booking experience. No real tickets are sold or issued.">
+  <title>IPL Arena | Experience Matchday</title>
+  <link rel="icon" href="/assets/ipl-brand-CVnsF1Oa.png" type="image/png">
+  <script type="module" crossorigin src="/assets/index-DrloB56V.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-drE64qXb.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#home" aria-label="IPL Arena home">
+        <img src="/assets/ipl-brand-CVnsF1Oa.png" alt="TATA IPL logo" width="72" height="44">
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-name">TICKET<span>ARENA</span></span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#matches">Matches</a>
+        <a href="#teams">Teams</a>
+        <a href="booking.html">Book Tickets</a>
+        <a href="#my-bookings">My Bookings</a>
+        <a href="#guidelines">Guidelines</a>
+      </nav>
+
+      <a class="button button-small nav-cta" href="booking.html">Find your seat <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section" id="home" aria-labelledby="heroTitle">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content page-width">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="live-dot"></span> THE BIGGEST CRICKET PARTY</div>
+          <img class="hero-ipl-logo" src="/assets/ipl-brand-CVnsF1Oa.png" alt="TATA IPL" width="108" height="68">
+          <h1 id="heroTitle">Experience The<br><span>Stadium Energy</span> Live!</h1>
+          <p>Every cheer, every boundary, every unforgettable moment. Find your team, explore the matchday atmosphere and plan your next cricket experience.</p>
+          <div class="hero-actions">
+            <a class="button" href="#matches">Explore Matches <span aria-hidden="true">↘</span></a>
+            <a class="button button-glass" href="#booking"><span class="play-icon" aria-hidden="true">▶</span> Book Tickets</a>
+          </div>
+          <p class="hero-disclaimer">A fan-made demo experience · No official fixtures or real tickets</p>
+        </div>
+        <div class="hero-badge" aria-label="Ten teams, one incredible league">
+          <span class="badge-star" aria-hidden="true">✳</span>
+          <strong>10</strong>
+          <span>TEAMS.<br>ONE LEAGUE.</span>
+        </div>
+        <a class="scroll-cue" href="#matches"><span aria-hidden="true">↓</span> SCROLL TO EXPLORE</a>
+      </div>
+    </section>
+
+    <div class="season-strip" aria-label="Schedule information">
+      <div class="page-width season-strip-inner">
+        <span class="strip-label"><span class="live-dot"></span> THE NEXT MATCHDAY STARTS HERE</span>
+        <span class="strip-message">Demo matchups only <span aria-hidden="true">·</span> Official fixtures and dates are TBA</span>
+        <a href="#matches">Explore schedule <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+
+    <section class="section page-width" id="matches" aria-labelledby="matchesTitle">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow section-kicker">MARK YOUR CALENDAR</span>
+          <h2 id="matchesTitle">Matchday <span class="text-blue">lineup</span></h2>
+          <p>Pick a matchup and start your demo booking. Let the anticipation build.</p>
+        </div>
+        <span class="section-side-note"><span class="live-dot"></span> <span id="matchListingStatus">SAMPLE LISTINGS</span></span>
+      </div>
+      <div class="demo-notice" role="note">
+        <span class="notice-icon" aria-hidden="true">i</span>
+        <p id="fixtureNoticeText"><strong>Fixture notice:</strong> These are illustrative demo pairings, not an official IPL schedule. Dates, times, venues and prices are placeholders.</p>
+      </div>
+      <p class="storage-message" id="databaseMessage" role="status" aria-live="polite"></p>
+      <div class="match-filter" id="matchFilter" hidden>
+        <span id="matchFilterLabel"></span>
+        <button type="button" id="clearMatchFilter">Show all matchups <span aria-hidden="true">×</span></button>
+      </div>
+      <div class="match-controls">
+        <div class="match-team-filter">
+          <label for="matchTeamFilter">Filter by team</label>
+          <select id="matchTeamFilter">
+            <option value="">All teams</option>
+          </select>
+        </div>
+        <div class="match-view-toggle" role="group" aria-label="Match layout">
+          <button type="button" data-match-view="grid" aria-pressed="true">Grid</button>
+          <button type="button" data-match-view="list" aria-pressed="false">List</button>
+        </div>
+      </div>
+      <div class="match-grid" id="matchGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="teams-section" id="teams" aria-labelledby="teamsTitle">
+      <div class="page-width section">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow section-kicker">PICK YOUR SIDE</span>
+            <h2 id="teamsTitle">Ten teams. <span class="text-gold">One passion.</span></h2>
+            <p>Choose your colors and find a sample matchup featuring your team.</p>
+          </div>
+          <span class="section-side-note">THE IPL TEAMS</span>
+        </div>
+        <div class="teams-grid" id="teamsGrid"></div>
+      </div>
+    </section>
+
+    <section class="stadiums-section" aria-labelledby="stadiumsTitle">
+      <div class="page-width section">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow section-kicker">THE PLACES THAT ROAR</span>
+            <h2 id="stadiumsTitle">Iconic <span class="text-blue">stadiums</span></h2>
+            <p>A few of the legendary grounds that bring Indian cricket to life.</p>
+          </div>
+        </div>
+        <div class="stadium-grid" id="stadiumGrid"></div>
+      </div>
+    </section>
+
+    <section class="booking-section" id="booking" aria-labelledby="bookingTitle">
+      <div class="page-width section">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow section-kicker">YOUR MATCHDAY, YOUR WAY</span>
+            <h2 id="bookingTitle">Find your <span class="text-gold">seat</span></h2>
+            <p>Submit a demo booking to Supabase and this browser. No real tickets are issued.</p>
+          </div>
+          <span class="booking-step"><span>01</span> CHOOSE <i></i><span>02</span> REVIEW <i></i><span>03</span> SAVE</span>
+        </div>
+
+        <div class="booking-layout">
+          <form class="booking-form" id="bookingForm">
+            <div class="form-title">
+              <span class="form-icon" aria-hidden="true">✦</span>
+              <div><h3>Build your booking</h3><p id="ticketPriceNote">All prices shown are demo estimates in INR.</p></div>
+            </div>
+
+            <div class="form-field">
+              <label for="matchSelect">Choose a matchup</label>
+              <select id="matchSelect" name="match" required></select>
+            </div>
+
+            <div class="selected-match-preview" id="selectedMatchPreview" aria-live="polite"></div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="ticketType">Seating category</label>
+                <select id="ticketType" name="ticketType" required></select>
+              </div>
+              <div class="form-field">
+                <label for="quantity">Tickets</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="6" value="1" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="customerName">Full name</label>
+                <input type="text" id="customerName" name="name" placeholder="Your name" autocomplete="name" maxlength="80" required>
+              </div>
+              <div class="form-field">
+                <label for="customerEmail">Email address</label>
+                <input type="email" id="customerEmail" name="email" placeholder="you@example.com" autocomplete="email" maxlength="254" required>
+              </div>
+            </div>
+
+            <label class="demo-consent">
+              <input type="checkbox" id="demoConsent" required>
+              <span>I understand this is a demo. It updates demo availability but does not issue real tickets or collect payment.</span>
+            </label>
+
+            <div class="price-breakdown" id="bookingSummary" aria-live="polite">
+              <h3 class="summary-title">Booking summary</h3>
+              <div><span>Selected match</span><span id="summaryMatch">Choose a matchup</span></div>
+              <div><span>Stand category</span><span id="summaryCategory">Choose a stand</span></div>
+              <div><span>Ticket quantity</span><span id="summaryQuantity">1</span></div>
+              <div><span>Price per ticket</span><span id="pricePerTicket">₹0</span></div>
+              <div><span>Ticket subtotal</span><span id="ticketSubtotal">₹0</span></div>
+              <div><span>Demo service fee <span class="fee-hint">(5%)</span></span><span id="serviceFee">₹0</span></div>
+              <div class="price-total"><strong>Total price</strong><strong id="totalPrice">₹0</strong></div>
+            </div>
+
+            <button type="submit" class="button button-wide">Review booking <span aria-hidden="true">→</span></button>
+            <p class="form-disclaimer">Demo only. No payment is collected and no tickets are issued.</p>
+            <p class="form-message" id="bookingMessage" role="status" aria-live="polite"></p>
+          </form>
+
+          <aside class="booking-aside">
+            <div class="aside-glow" aria-hidden="true"></div>
+            <span class="eyebrow">THE MAGIC IS BETTER LIVE</span>
+            <h3>Make some<br>matchday <span>memories.</span></h3>
+            <p>Bring your crew, wear your colors and get ready for the noise. Your next cricket story starts here.</p>
+            <div class="aside-stats">
+              <div><strong>10</strong><span>Iconic teams</span></div>
+              <div><strong>1</strong><span>Love of cricket</span></div>
+            </div>
+            <div class="aside-footnote"><span aria-hidden="true">✦</span> YOUR TEAM. YOUR STADIUM. YOUR MOMENT.</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-section" aria-labelledby="pricingTitle">
+      <div class="page-width section">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow section-kicker">A SEAT FOR EVERY FAN</span>
+            <h2 id="pricingTitle">Choose your <span class="text-gold">view</span></h2>
+            <p>Illustrative demo pricing only. Real ticket prices vary by match and are not available here.</p>
+          </div>
+        </div>
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <span class="pricing-label">THE CLASSIC</span><h3>General Stand</h3>
+            <p class="pricing-desc">Join the crowd and feel every moment.</p>
+            <strong class="pricing-amount">₹900 <small>/ ticket</small></strong>
+            <span class="pricing-feature">A lively view of the action</span>
+          </article>
+          <article class="pricing-card pricing-featured">
+            <span class="pricing-label">THE FAN FAVOURITE</span><h3>Premium Stand</h3>
+            <p class="pricing-desc">A little closer to all the action.</p>
+            <strong class="pricing-amount">₹1,800 <small>/ ticket</small></strong>
+            <span class="pricing-feature">Comfort and a great view</span>
+          </article>
+          <article class="pricing-card">
+            <span class="pricing-label">THE ULTIMATE</span><h3>VIP Lounge</h3>
+            <p class="pricing-desc">Make your matchday extra special.</p>
+            <strong class="pricing-amount">₹3,200 <small>/ ticket</small></strong>
+            <span class="pricing-feature">Premium demo experience</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-bookings-section" id="my-bookings" aria-labelledby="myBookingsTitle">
+      <div class="page-width section">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow section-kicker">SAVED ON THIS DEVICE</span>
+            <h2 id="myBookingsTitle">My <span class="text-blue">bookings</span></h2>
+            <p>Your submitted demo previews are listed on this device; booking details are also sent to Supabase.</p>
+          </div>
+          <span class="local-badge"><span aria-hidden="true">●</span> SUPABASE + BROWSER</span>
+        </div>
+        <div class="bookings-list" id="bookingsList"></div>
+        <div class="empty-bookings" id="bookingsEmpty">
+          <span class="empty-icon" aria-hidden="true">✦</span>
+          <h3>Your matchday list is waiting</h3>
+          <p>Once you save a demo booking, it will show up here.</p>
+          <a class="text-link" href="#booking">Create a demo booking <span aria-hidden="true">→</span></a>
+        </div>
+        <p class="storage-message" id="storageMessage" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="guidelines-section" id="guidelines" aria-labelledby="guidelinesTitle">
+      <div class="page-width section guidelines-layout">
+        <div>
+          <span class="eyebrow section-kicker">GOOD TO KNOW</span>
+          <h2 id="guidelinesTitle">Booking <span class="text-gold">guidelines</span></h2>
+          <p class="guidelines-intro">A few quick notes to make this demo experience clear and easy.</p>
+          <a class="button button-outline" href="#booking">Start a demo booking <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="guidelines-list">
+          <details>
+            <summary><span>01</span> Are these official IPL fixtures?</summary>
+            <p>No. Matchups are examples for the demo only. Dates, times and venues are not official and have not been confirmed.</p>
+          </details>
+          <details>
+            <summary><span>02</span> Does this website sell or reserve tickets?</summary>
+            <p>No. There is no ticketing backend or payment processing. Saving a preview only stores demo details in this browser.</p>
+          </details>
+          <details>
+            <summary><span>03</span> Where are my demo bookings saved?</summary>
+            <p>They are saved in this browser's local storage on this device. They are not sent to a server and may be cleared with browser data.</p>
+          </details>
+          <details>
+            <summary><span>04</span> What should I check before a real match?</summary>
+            <p>Use official IPL and team channels for confirmed schedules, stadium information, ticket availability and entry requirements.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-width footer-main">
+      <a class="brand footer-brand" href="#home" aria-label="IPL Arena home">
+        <img src="/assets/ipl-brand-CVnsF1Oa.png" alt="" width="68" height="42">
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-name">TICKET<span>ARENA</span></span>
+      </a>
+      <p>A fan-made cricket experience. Not affiliated with the IPL or any team.</p>
+      <nav aria-label="Footer navigation">
+        <a href="#matches">Matches</a><a href="#teams">Teams</a><a href="#booking">Book</a><a href="#guidelines">Guidelines</a>
+      </nav>
+    </div>
+    <div class="page-width footer-bottom">
+      <span>© 2026 IPL Ticket Arena · Demo project</span>
+      <span>No official fixtures · No real tickets · No payments</span>
+    </div>
+  </footer>
+
+  <dialog class="review-dialog" id="reviewDialog" aria-labelledby="reviewTitle">
+    <div class="dialog-top">
+      <span class="dialog-icon" aria-hidden="true">✦</span>
+      <button class="dialog-close" type="button" data-close-review aria-label="Close booking review">×</button>
+    </div>
+    <span class="eyebrow section-kicker">ONE LAST LOOK</span>
+    <h2 id="reviewTitle">Review your <span class="text-gold">demo booking</span></h2>
+    <p class="dialog-intro">Check your details before submitting this demo booking to Supabase.</p>
+    <div class="review-summary" id="reviewSummary"></div>
+    <p class="form-message" id="bookingDialogMessage" role="status" aria-live="polite"></p>
+    <p class="dialog-warning"><strong>Demo only:</strong> This updates demo availability, but will not reserve real seats, process payment or issue tickets.</p>
+    <div class="dialog-actions">
+      <button class="button button-outline" type="button" data-close-review>Back to edit</button>
+      <button class="button" type="button" id="saveBookingButton">Save demo booking <span aria-hidden="true">→</span></button>
+    </div>
+  </dialog>
+  <div class="toast-message" id="toastMessage" role="status" aria-live="polite"></div>
+</body>
+</html>
